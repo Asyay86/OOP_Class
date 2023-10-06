@@ -40,22 +40,19 @@ import java.util.UUID;
 
         for(int i = 0; i < totalStudents.size(); i++){
             totalStudents.get(i).setUniqueID(UUID.randomUUID().toString());
-            System.out.println(totalStudents.get(i).getUniqueID());
+            System.out.println("Student " + i + " ID: " + totalStudents.get(i).getUniqueID());
             
+            //set answers and submit
             totalStudents.get(i).setAnswer(questionType);
+            //System.out.println(totalStudents.get(i).getAnswer());
             control.submit(totalStudents.get(i));
         }
 
-        //testing repeat answers
-        control.submit(totalStudents.get(1));
-
-
-        //Submitting answers
-
-
         //Outputting results
-        control.output(q);
-
+        control.output(q, questionType);
+        control.clear();
+        q.clear();
+        totalStudents.clear();
     }
 
 }
